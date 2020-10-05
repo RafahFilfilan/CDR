@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sabic - TruckStation</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../global/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+</head>
+
+<body class="bodystyles">
+
+	<div class="mainbg">
+		<div class="row">
+			<div class="col-lg-2" style="padding: 0">
+				<div id="dashRows">
+					<div id="rowTwo">
+						<p><img id="profilePicture" src="../images/woman.png" alt="Profile Picture" style="height:55px; align:middle"/> Rafah Filfilan</p> 
+					</div>
+					<div id="rowThree">
+						<center><a class="conButton" href="customerData.html"><div id="cdrButton">Make CDR</div></a></center>
+					</div>
+					<div id="rowFour">
+						<div class="vertical-menu">
+							<ul>
+								<li><a onclick="openTab(event, 'Dashboard');" id="defaultOpen"><span class="fas fa-tachometer-alt"></span>Overview</a></li>
+								<li><a onclick="openTab(event, 'Transporters');"><span class="fas fa-truck"></span>Transporters</a></li>
+								<li><a onclick="openTab(event, 'Complaints');"><span class="fas fa-file"></span>Complaints</a></li>
+								<li><a onclick="openTab(event, 'Support');"><span class="fas fa-life-ring"></span>Support</a></li>
+								<li><a onclick="#"><span class="fas fa-power-off"></span>Logout</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-10" style="padding: 0">
+				<div id="menuContent">
+					<div id="Dashboard" class="tabcontent">
+						<h3 class="dashTitle">Dashboard</h3>
+						<hr id="dashRule">
+						<div class="horizontal-menu">
+						  <ul class="nav nav-tabs nav-justified">
+							<li class="active"><a data-toggle="tab" href="#home">Overview Analytics</a></li>
+							<li><a data-toggle="tab" href="#menu1">Transporter Analytics</a></li>
+							<li><a data-toggle="tab" href="#menu2">Receivers Analytics</a></li>
+						  </ul>
+
+						  <div class="tab-content">
+							<div id="home" class="tab-pane fade in active">
+								<div id="dashContent">
+									
+									<div class="row" id="boxesContainer">
+										<div class="row">
+											<select id="dashtimeslots">
+												<option>Day</option>
+												<option>Week</option>
+												<option>Month</option>
+												<option>Year</option>
+											</select>
+										</div>
+										<div class="box">
+											<div class="chart" id="chart1" data-percent="80">80%</div>
+											<h6 id="chart1h6" class="counter-count">9600</h6>
+											<h2 id="chart1h2">Shipments Picked on Time</h2>
+										</div>
+											
+										<div class="box">
+											<div class="chart" id="chart2" data-percent="60">60%</div>
+											<h6 id="chart2h6" class="counter-count">7200</h6>
+											<h2 id="chart2h2">Shipments In Progress</h2>
+										</div>
+										
+										<div class="box">
+											<div class="chart" id="chart3" data-percent="25">25%</div>
+											<h6 id="chart3h6" class="counter-count">3000</h6>
+											<h2 id="chart3h2">Shipments Pending</h2>
+										</div>
+										
+										<div class="box">
+											<div class="chart" id="chart4" data-percent="15">15%</div>
+											<h6 id="chart4h6" class="counter-count">1800</h6>
+											<h2 id="chart4h2">Shipments Rejected</h2>
+										</div>
+										
+										<div class="box">
+											<div class="chart" id="chart5" data-percent="75">75%</div>
+											<h6 id="chart5h6" class="counter-count">9000</h6>
+											<h2 id="chart5h2">Shipments Received on Time</h2>
+										</div>
+										
+										<div class="box">
+											<div class="chart" id="chart6" data-percent="70">70%</div>
+											<h6 id="chart6h6" class="counter-count">8400</h6>
+											<h2 id="chart6h2">Delivery-note Issued</h2>
+										</div>
+										
+										<div class="box">
+											<div class="chart" id="chart7" data-percent="55">55%</div>
+											<h6 id="chart7h6" class="counter-count">6600</h6>
+											<h2 id="chart7h2">Sales Invoices Issued</h2>
+										</div>
+										
+										<div class="box">
+											<div class="chart" id="chart8" data-percent="79">79%</div>
+											<h6 id="chart8h6" class="counter-count">9480</h6>
+											<h2 id="chart8h2">Complaints Solved</h2>
+										</div>
+									</div> <!--End of boxes container-->
+									
+									
+									<div class="row" id="dashbuttons">
+										<div class="grid-container">
+											<button class="gridContainerItem" id="dashbutton1" type="button" data-toggle="modal" data-target="#transporterQuotaModal">
+												Transporter Quota <!--id="transporterQuota"-->
+											</button>
+											<button class="gridContainerItem" id="dashbutton2" type="button" data-toggle="modal" data-target="#payablesModal">
+												Payables <!--id="payables"-->
+											</button>
+											<button class="gridContainerItem" id="dashbutton3" type="button" data-toggle="modal" data-target="#transportersRatingModal">
+												Transporters Rating <!--id="transportersRating"-->
+											</button>  
+											<button class="gridContainerItem" id="dashbutton4" type="button" data-toggle="modal" data-target="#generateReportModal">
+												Reports <!--id="generateReport"-->
+											</button>
+										</div>
+									</div>
+
+									<div id="transporterQuotaModal" class="modal fade" role="dialog">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+										  <div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										  </div>
+										  <div class="modal-body">
+											<select id="transportersQuotaList">
+												<option>Transporter #1</option><option>Transporter #2</option><option>Transporter #3</option><option>Transporter #4</option>
+												<option>Transporter #5</option><option>Transporter #6</option>
+											</select>
+											<p>TruckStation recommends: <b>Increase by %2</b></p>
+											<span>User Input:</span>&nbsp;<input type="text" style="width:30%; height: 25px;">
+											<br>
+											<input type="checkbox" class="required"> <span>I'm sure I want to change Transporter Quota</span>
+										  </div>
+										  <div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+										  </div>
+										</div>
+									  </div>
+									</div>
+									
+									<div id="payablesModal" class="modal fade" role="dialog">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+										  <div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										  </div>
+											<table id="payablesTable">
+											  <tr>
+												<th>Name</th>
+												<th>Current Balance</th>
+											  </tr>
+											  <tr>
+												<td>Transporter #1</td>
+												<td>SAR20000</td>
+											  </tr>
+											  <tr>
+												<td>Transporter #2</td>
+												<td>SAR9000</td>
+											  </tr>
+											  <tr>
+												<td>Transporter #3</td>
+												<td>SAR8900</td>
+											  </tr>
+											  <tr>
+												<td>Transporter #4</td>
+												<td>SAR16000</td>
+											  </tr>
+											  <tr>
+												<td>Transporter #5</td>
+												<td>SAR13000</td>
+											  </tr>
+											  <tr>
+												<td>Transporter #6</td>
+												<td>SAR19990</td>
+											  </tr>
+											</table>
+
+										  <div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										  </div>
+										</div>
+									  </div>
+									</div>
+									
+									<div id="transportersRatingModal" class="modal fade" role="dialog">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+										  <div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<p><b>Manage Trasporters Rating Criteria</b><p>
+										  </div>
+										  <div class="modal-body">
+											<span>Title:</span>&nbsp;<input type="text" style="width:46%; height: 25px;">&nbsp;&nbsp;&nbsp;<span>Percentage:</span>&nbsp;<input type="text" style="width:10%; height: 25px;">&nbsp;%
+											<br>
+											<span>Title:</span>&nbsp;<input type="text" style="width:46%; height: 25px;">&nbsp;&nbsp;&nbsp;<span>Percentage:</span>&nbsp;<input type="text" style="width:10%; height: 25px;">&nbsp;%
+											<br>
+											<span>Title:</span>&nbsp;<input type="text" style="width:46%; height: 25px;">&nbsp;&nbsp;&nbsp;<span>Percentage:</span>&nbsp;<input type="text" style="width:10%; height: 25px;">&nbsp;%
+											<br>
+											<span>Title:</span>&nbsp;<input type="text" style="width:46%; height: 25px;">&nbsp;&nbsp;&nbsp;<span>Percentage:</span>&nbsp;<input type="text" style="width:10%; height: 25px;">&nbsp;%
+											<br>
+											<span style="font-size:15px; color:#4D4D4D"><i class="fas fa-plus" style="font-size:13px;"></i>&nbsp;Add more rating criteria<span>
+										  </div>
+										  <div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+										  </div>
+										</div>
+									  </div>
+									</div>
+									
+									<div id="generateReportModal" class="modal fade" role="dialog">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+										  <div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<p><b>Generate Report</b><p>
+										  </div>
+										  <div class="modal-body">
+											<select id="generateReportList">
+												<option>Transporters Punctuality</option><option>Transporters Prices</option><option>Transporters Rating</option>
+											</select>
+										  </div>
+										  <div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+										  </div>
+										</div>
+									  </div>
+									</div>
+									
+								</div> <!--End of dashContent-->
+								
+								<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+								<script src="../js/jquery.easypiechart.js"></script>
+								<script>
+									$(function() {
+										$('#chart1').easyPieChart({
+											barColor: '#48B14C',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+										$('#chart2').easyPieChart({
+											barColor: '#1294F6',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+										$('#chart3').easyPieChart({
+											barColor: '#FEED19',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+										$('#chart4').easyPieChart({
+											barColor: '#F7412C',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+										
+										$('#chart5').easyPieChart({
+											barColor: '#89C541',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+										$('#chart6').easyPieChart({
+											barColor: '#9D1DB2',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+										$('#chart7').easyPieChart({
+											barColor: '#FE9900',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+										$('#chart8').easyPieChart({
+											barColor: '#3F4DB8',
+											size: 100,
+											scaleColor: false,
+											lineWidth: 10,
+											trackColor: '#373737',
+											lineCap: 'circle',
+											animate: 2000
+										});
+									});
+									
+									$('.counter-count').each(function () {
+										$(this).prop('Counter',0).animate({
+											Counter: $(this).text()
+										}, {
+											duration: 5000,
+											easing: 'swing',
+											step: function (now) {
+												$(this).text(Math.ceil(now));
+											}
+										});
+									});
+								</script>
+								
+							</div> <!--END OF FIRST TAB-->
+							
+							
+							
+							<div id="menu1" class="tab-pane fade">
+								<div class="row" id="transporterAnalyticsContent">
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton1">Transporter #1</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton2">Transporter #2</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton3">Transporter #3</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton4">Transporter #4</button>
+									</div>
+								</div>
+								<div class="row" id="transporterAnalyticsContent">
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton5">Transporter #5</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton6">Transporter #6</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton7">Transporter #7</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton8">Transporter #8</button>
+									</div>
+								</div>
+								<div class="row" id="transporterAnalyticsContent">
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton9">Transporter #9</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton10">Transporter #10</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton11">Transporter #11</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton12">Transporter #12</button>
+									</div>
+								</div>
+								<div class="row" id="transporterAnalyticsContent">
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton13">Transporter #13</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton14">Transporter #14</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton15">Transporter #15</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton16">Transporter #16</button>
+									</div>
+								</div>
+								<div class="row" id="transporterAnalyticsContent">
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton17">Transporter #17</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton18">Transporter #18</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton19">Transporter #19</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton20">Transporter #20</button>
+									</div>
+								</div>
+								<div class="row" id="transporterAnalyticsContent">
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton21">Transporter #21</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton22">Transporter #22</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton23">Transporter #23</button>
+									</div>
+									<div class="col-md-3 buttonsWrapper">
+										<button class="transporterButtons" id="transpAnalyticsButton24">Transporter #24</button>
+									</div>
+								</div>
+								
+								
+								<div id="transpAnalyticsModal" class="modal">
+									<!-- Modal content -->
+									<div class="modal-content">
+										<span class="close">&times;</span>
+										
+										<canvas id="transpAnalyticsCanva"></canvas>
+										
+									</div>
+									
+								</div>
+								
+								<script>
+									// Get the modal
+									var transpAnalyticsModal = document.getElementById("transpAnalyticsModal");
+
+									// Get the button that opens the modal
+									var transpAnalyticsButton1 = document.getElementById("transpAnalyticsButton1");
+									var transpAnalyticsButton2 = document.getElementById("transpAnalyticsButton2");
+									var transpAnalyticsButton3 = document.getElementById("transpAnalyticsButton3");
+									var transpAnalyticsButton4 = document.getElementById("transpAnalyticsButton4");
+									var transpAnalyticsButton5 = document.getElementById("transpAnalyticsButton5");
+									var transpAnalyticsButton6 = document.getElementById("transpAnalyticsButton6");
+									var transpAnalyticsButton7 = document.getElementById("transpAnalyticsButton7");
+									var transpAnalyticsButton8 = document.getElementById("transpAnalyticsButton8");
+									var transpAnalyticsButton9 = document.getElementById("transpAnalyticsButton9");
+									var transpAnalyticsButton10 = document.getElementById("transpAnalyticsButton10");
+									var transpAnalyticsButton11 = document.getElementById("transpAnalyticsButton11");
+									var transpAnalyticsButton12 = document.getElementById("transpAnalyticsButton12");
+									var transpAnalyticsButton13 = document.getElementById("transpAnalyticsButton13");
+									var transpAnalyticsButton14 = document.getElementById("transpAnalyticsButton14");
+									var transpAnalyticsButton15 = document.getElementById("transpAnalyticsButton15");
+									var transpAnalyticsButton16 = document.getElementById("transpAnalyticsButton16");
+									var transpAnalyticsButton17 = document.getElementById("transpAnalyticsButton17");
+									var transpAnalyticsButton18 = document.getElementById("transpAnalyticsButton18");
+									var transpAnalyticsButton19 = document.getElementById("transpAnalyticsButton19");
+									var transpAnalyticsButton20 = document.getElementById("transpAnalyticsButton20");
+									var transpAnalyticsButton21 = document.getElementById("transpAnalyticsButton21");
+									var transpAnalyticsButton22 = document.getElementById("transpAnalyticsButton22");
+									var transpAnalyticsButton23 = document.getElementById("transpAnalyticsButton23");
+									var transpAnalyticsButton24 = document.getElementById("transpAnalyticsButton24");
+									
+									// Get the <span> element that closes the modal
+									var span = document.getElementsByClassName("close")[0];
+
+									// When the user clicks the button, open the modal 
+									transpAnalyticsButton1.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton2.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton3.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton4.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton5.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton6.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton7.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton8.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton9.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton10.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton11.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton12.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton13.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton14.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton15.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton16.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton17.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton18.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton19.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton20.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton21.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton22.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton23.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+									transpAnalyticsButton24.onclick = function() { transpAnalyticsModal.style.display = "block"; }
+
+									// When the user clicks on <span> (x), close the modal
+									span.onclick = function() {
+									  transpAnalyticsModal.style.display = "none";
+									}
+
+									// When the user clicks anywhere outside of the modal, close it
+									window.onclick = function(event) {
+									  if (event.target == transpAnalyticsModal) {
+										transpAnalyticsModal.style.display = "none";
+									  }
+									}
+									
+									
+									
+									let transpAnalyticsCanva = document.getElementById('transpAnalyticsCanva').getContext("2d");
+											Chart.defaults.global.legend.labels.usePointStyle = true;
+											Chart.defaults.global.legend.labels.defaulFontSize = 16;
+											
+											var pickedOnTimeTA = {
+											  label: 'Shipments Picked on Time',
+											  data: [100, 150, 160, 190, 240, 250, 324, 270, 200, 278, 252, 255],
+											  backgroundColor: 'rgba(72, 177, 76, 0.8)',
+											  borderWidth: 0
+											};
+
+											var inProgressTA = {
+											  label: 'Shipments in Progress',
+											  data: [120, 115, 126, 133, 115, 163, 122, 133, 111, 112, 113, 116],
+											  backgroundColor: 'rgba(18, 148, 246, 0.8)',
+											  borderWidth: 0
+											};
+											
+											var pendingTA = {
+											  label: 'Shipments Pending',
+											  data: [100, 72, 61, 43, 37, 88, 104, 173, 128, 79, 60, 94],
+											  backgroundColor: 'rgba(254, 237, 25, 0.8)',
+											  borderWidth: 0
+											};
+											
+											var rejectedTA = {
+											  label: 'Shipments Rejected',
+											  data: [90, 62, 51, 33, 27, 78, 94, 163, 118, 69, 50, 84],
+											  backgroundColor: 'rgba(247, 65, 44, 0.8)',
+											  borderWidth: 0
+											};
+											
+											var receivedOnTimeTA = {
+											  label: 'Shipments Received on Time',
+											  data: [95, 145, 155, 185, 235, 245, 319, 265, 195, 273, 247, 250],
+											  backgroundColor: 'rgba(137, 197, 65, 0.8)',
+											  borderWidth: 0
+											};
+											
+											var deliveryNoteIssuedTA = {
+											  label: 'Delivery-note Issued',
+											  data: [110, 160, 170, 200, 250, 260, 334, 280, 210, 288, 262, 265],
+											  backgroundColor: 'rgba(157, 29, 178, 0.8)',
+											  borderWidth: 0
+											};
+											
+											var salesInvoicesIssuedTA = {
+											  label: 'Sales Invoices Issued',
+											  data: [90, 140, 150, 180, 230, 240, 314, 260, 190, 268, 242, 245],
+											  backgroundColor: 'rgba(254, 153, 0, 0.8)',
+											  borderWidth: 0
+											};
+											
+											var complaintsSolvedTA = {
+											  label: 'Complaints Solved',
+											  data: [95, 67, 56, 38, 32, 83, 99, 168, 123, 74, 55, 89],
+											  backgroundColor: 'rgba(63, 77, 184, 0.8)',
+											  borderWidth: 0
+											};
+											
+											var chartData = {
+												labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+												datasets: [pickedOnTimeTA, inProgressTA, pendingTA, rejectedTA, receivedOnTimeTA, deliveryNoteIssuedTA, salesInvoicesIssuedTA, complaintsSolvedTA]
+											};
+											
+											var chartOptions = {
+												legend: {
+													position: 'right',
+													labels: {
+														fontColor: 'black'
+													}
+												},
+												title: {
+													display: true,
+													text: "Transporter Analytics",  
+													fontColor: "#000",
+													fontSize: 25,
+													padding: 10,
+												}
+											};
+											
+											let transpAnalyticsChart = new Chart(transpAnalyticsCanva, {
+												type: 'bar',
+												data: chartData,
+												options: chartOptions
+											});
+									</script>
+									
+							</div> <!--END OF SECOND TAB-->
+							
+							<div id="menu2" class="tab-pane fade">
+								<div class="row" id="receiverAnalyticsContent">
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #1</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.9/10</p>
+													<p>Receiver Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>2000/2753</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>753/2753</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #2</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.4/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>7020/7324</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>304/7324</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="receiverAnalyticsContent">
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #3</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.7/10</p>
+													<p>Receiver Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>1341/1453</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>112/1453</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #4</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>9.1/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>1020/1324</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>304/1324</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="receiverAnalyticsContent">
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #5</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>7.9/10</p>
+													<p>Receiver Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>747/1083</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>336/1083</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #6</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>7.8/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>705/924</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>219/924</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="receiverAnalyticsContent">
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #7</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>9.2/10</p>
+													<p>Receiver Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>2040/2253</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>213/2253</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 receiverAnalyticsDetails" >
+										<div class="receiverAnalyticsBorder">
+											<div class="receiverAnalyticsName">Receiver #8</div>
+											<div class="row receiverAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.4/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>5429/6852</p>
+													<p>Accepted Delivery-note</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>1423/6852</p>
+													<p>Rejected Delivery-note</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							  <!--	THE RECEIVER TAB HERE-->
+							</div> <!--END OF THIRD TAB-->
+							
+							
+						  </div> <!--END OF ALL HORIZONTAL CONTENT-->
+						
+							
+						</div>	<!--END OF HORIZONTAL MENU-->
+						
+					</div> <!--END OF DASHBOARD CONTENT-->
+					
+					<div id="Transporters" class="tabcontent">
+						<h3 class="dashTitle">Transporters</h3>
+						<hr id="dashRule">
+							<div class="row">
+								<div class="col-md-10"></div>
+								<div class="col-md-2">
+									<button id="addTransporter"><i class="fas fa-plus" style="font-size:13px;"></i> Add Transporter</button>
+								</div>
+							</div>
+							<div class="analyticsContainer">
+								<div class="row">
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #1</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.9/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>8.4/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>9.0/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #2</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>9.1/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>7.7/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>8.4/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #3</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.6/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>8.7/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>9.6/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+								</div>
+
+								<br>
+								<div class="row">
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #4</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>7.9/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>7.4/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>8.0/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #5</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>9.2/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>8.7/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>7.9/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #6</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>9.2/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>9.6/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>8.9/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #7</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>6.9/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>6.4/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>6.0/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #8</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.1/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>8.7/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>7.9/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #9</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>9.3/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>8.7/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>8.0/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="row">
+											<div class="col-md-2" style="margin-left:8px; float:left; color:#0047AF">Edit</div>
+											<div class="col-md-8"></div>
+											<div class="col-md-2" style="margin-right:10px; float:right; color:#FF0000">Delete</div>
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #10</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>7.3/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>7.8/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>8.2/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #11</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.4/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>7.9/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>8.1/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 transporterAnalyticsDetails" >
+										<div class="transporterAnalyticsBorder">
+											<div class="transporterAnalyticsName">Transporter #12</div>
+											<div class="row transporterAnalyticsRates">
+												<div class="col-md-4 transporterRate">
+													<p>8.5/10</p>
+													<p>Transporter Rating</p>
+												</div>
+												<div class="col-md-4 DriversRate">
+													<p>8.9/10</p>
+													<p>Drivers Rating</p>
+												</div>
+												<div class="col-md-4 ServicesRate">
+													<p>9.0/10</p>
+													<p>Services Rating</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+					</div>
+				<!--BREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK-->
+
+					<div id="Complaints" class="tabcontent">
+						<h3 class="dashTitle">Complaints</h3>
+						<hr id="dashRule">
+						<div class="row">
+							<div class="col-md-10"></div>
+							<div class="col-md-2">
+								<button id="addComplaint"><i class="fas fa-plus" style="font-size:13px;"></i> Raise a complaint</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="accordion">Section 1 <span style="float:right; color:#48B14C; font-weight:bold; padding-right: 15px;">CLOSED</span></button>
+								<div class="panel">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+
+								<button class="accordion">Section 2 <span style="float:right; color:#48B14C; font-weight:bold; padding-right: 15px;">CLOSED</span></button>
+								<div class="panel">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+
+								<button class="accordion">Section 3 <span style="float:right; color:#F7412C; font-weight:bold; padding-right: 15px;">OPEN</span></button>
+								<div class="panel">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+								
+								<button class="accordion">Section 4 <span style="float:right; color:#48B14C; font-weight:bold; padding-right: 15px;">CLOSED</span></button>
+								<div class="panel">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+								
+								<button class="accordion">Section 5 <span style="float:right; color:#F7412C; font-weight:bold; padding-right: 15px;">OPEN</span></button>
+								<div class="panel">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+								
+								<button class="accordion">Section 6 <span style="float:right; color:#F7412C; font-weight:bold; padding-right: 15px;">OPEN</span></button>
+								<div class="panel">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+							</div>
+							<script>
+								var acc = document.getElementsByClassName("accordion");
+								var i;
+
+								for (i = 0; i < acc.length; i++) {
+								  acc[i].addEventListener("click", function() {
+									this.classList.toggle("active");
+									var panel = this.nextElementSibling;
+									if (panel.style.display === "block") {
+									  panel.style.display = "none";
+									} else {
+									  panel.style.display = "block";
+									}
+								  });
+								}
+							</script>
+						</div>
+					</div>
+					
+					<div id="Support" class="tabcontent">
+						<h3 class="dashTitle">Support</h3>
+						<hr id="dashRule"> 
+						
+						<div class="col-md-2"></div>
+						<div class="col-md-7">
+							<p id="supportParagraph">Whether you have a question or need anything else.
+								We, TruckStation ready to answer all your questions.</p>
+							
+							<form id="supportForm">
+								<div class="row">
+									<div class="col-md-2">
+										<label for="supportReason">Topic</label>
+									</div>
+									<div class="col-md-10">
+										<select id="supportReason" name="supportReason">
+											<option value="transporter">Transporter</option>
+											<option value="receiver">Receiver</option>
+											<option value="service">Service</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2">
+										<label for="supportSubject">Subject</label>
+									</div>
+									<div class="col-md-10">
+										<input type="text" id="supportSubject" name="Subject" placeholder="Subject ..">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2">
+										<label for="supportMessage">Message</label>
+									</div>
+									<div class="col-md-10">
+										<textarea id="supportMessage" name="supportMessage" placeholder="Write something.." style="height:200px"></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2"></div>
+									<div class="col-md-10">
+										<input type="submit" value="Submit">
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+
+					<!-- <div id="transporters" class="tabcontent">
+						<h3>Transporters</h3>
+						<hr id="dashRule">
+					</div>
+
+					<div id="complains" class="tabcontent">
+						<h3>Complains</h3>
+						<hr id="dashRule">
+					</div>
+					
+					<div id="support" class="tabcontent">
+						<h3>Support</h3>
+						<hr id="dashRule">
+					</div> -->
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="container">
+		
+	</div>
+	
+
+<script>
+	function openTab(evt, tabName) {
+	  var i, tabcontent, tablinks;
+	  tabcontent = document.getElementsByClassName("tabcontent");
+	  for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	  }
+	  tablinks = document.getElementsByClassName("tablinks");
+	  for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	  }
+	  document.getElementById(tabName).style.display = "block";
+	  evt.currentTarget.className += " active";
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+
+	document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

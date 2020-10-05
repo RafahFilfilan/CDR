@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TRUCK STATION - SABIC EDITION</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../images/favicon.ico">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../global/bootstrap.min.css">
+<!-- Fontawesome CSS -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	
+<!-- Fonts and icons -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet"> 
+<!-- Reset CSS -->
+<link rel="stylesheet" href="../global/reset.css">
+<!-- Style CSS -->
+<link rel="stylesheet" href="../global/style.css">
+<!-- Responsive  CSS -->
+<link rel="stylesheet" href="../global/responsive.css">
+</head>
+<body>
+
+<div class="wizard-main">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="container">
+				<p id="customerID">Customer ID: #123123123</p>
+			</div>
+		</div>
+		<div class="col-sm-8"></div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 login-sec">
+				<div class="login-sec-bg">
+					<h2 class="text-center">Make Cargo Delivery Request</h2>
+					<form id="example-advanced-form" action="#" style="display: none;">
+						<h3>Choose Sales Order</h3>
+						<fieldset class="form-input">
+							<label>Sort By</label>
+							<select class="ddlist">
+								<option>Recent Orders</option>
+								<option>Oldest Orders</option>
+							</select>
+							<label class="cbcontainer" style="margin-left: 6em">Select All
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+							
+							<div class="container">
+								<div class="row orderList">
+									<div class="col-sm-4">
+										<div class="col-sm-12 orderItem" id="orderItem1">
+											<h5>Sales Order #0000001</h5>
+											<p><b>Issued Date:</b> 27-04-2019</p>
+											<p><b>Price:</b> 100,000SR</p>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="col-sm-12 orderItem" id="orderItem2">
+											<h5>Sales Order #0000002</h5>
+											<p><b>Issued Date:</b> 21-05-2019</p>
+											<p><b>Price:</b> 70,000SR</p>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="col-sm-12 orderItem" id="orderItem3">
+											<h5>Sales Order #0000003</h5>
+											<p><b>Issued Date:</b> 16-11-2019</p>
+											<p><b>Price:</b> 50,000SR</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-4">
+										<a id="cdrlink1" class="cdrlink">
+											<div class="col-sm-12 makeCDR" id="makeCDR1">
+												<p>MAKE CDR</p>
+											</div>
+										</a>
+									</div>
+									<div class="col-sm-4">
+										<a id="cdrlink2" class="cdrlink">
+											<div class="col-sm-12 makeCDR" id="makeCDR2">
+												<p>MAKE CDR</p>
+											</div>
+										</a>
+									</div>
+									<div class="col-sm-4">
+										<a id="cdrlink3" class="cdrlink">
+											<div class="col-sm-12 makeCDR" id="makeCDR3">
+												<p>MAKE CDR</p>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							
+							</br>
+							
+							<div class="container">
+								<div class="row orderList">
+									<div class="col-sm-4">
+										<div class="col-sm-12 orderItem" id="orderItem4">
+											<h5>Sales Order #0000004</h5>
+											<p><b>Issued Date:</b> 27-04-2019</p>
+											<p><b>Price:</b> 100,000SR</p>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="col-sm-12 orderItem" id="orderItem5">
+											<h5>Sales Order #0000005</h5>
+											<p><b>Issued Date:</b> 21-05-2019</p>
+											<p><b>Price:</b> 70,000SR</p>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="col-sm-12 orderItem" id="orderItem6">
+											<h5>Sales Order #0000006</h5>
+											<p><b>Issued Date:</b> 16-11-2019</p>
+											<p><b>Price:</b> 50,000SR</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-4">
+										<a id="cdrlink4" class="cdrlink">
+											<div class="col-sm-12 makeCDR" id="makeCDR4">
+												<p>MAKE CDR</p>
+											</div>
+										</a>
+									</div>
+									<div class="col-sm-4">
+										<a id="cdrlink5" class="cdrlink">
+											<div class="col-sm-12 makeCDR" id="makeCDR5">
+												<p>MAKE CDR</p>
+											</div>
+										</a>
+									</div>
+									<div class="col-sm-4">
+										<a id="cdrlink6" class="cdrlink">
+											<div class="col-sm-12 makeCDR" id="makeCDR6">
+												<p>MAKE CDR</p>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<script>
+								$('#cdrlink1').on('click', function() { 
+									$('#makeCDR1').css('background', '#4d4d4d');
+									document.getElementById("makeCDR1").style.color = '#FF9700';
+									$('#orderItem1').css('background', '#4d4d4d');
+									document.getElementById("orderItem1").style.color = '#fff';
+								});  
+								$('#cdrlink2').on('click', function() { 
+									$('#makeCDR2').css('background', '#4d4d4d');
+									document.getElementById("makeCDR2").style.color = '#FF9700';
+									$('#orderItem2').css('background', '#4d4d4d');
+									document.getElementById("orderItem2").style.color = '#fff';
+								});
+								$('#cdrlink3').on('click', function() { 
+									$('#makeCDR3').css('background', '#4d4d4d');
+									document.getElementById("makeCDR3").style.color = '#FF9700';
+									$('#orderItem3').css('background', '#4d4d4d');
+									document.getElementById("orderItem3").style.color = '#fff';
+								});
+								$('#cdrlink4').on('click', function() { 
+									$('#makeCDR4').css('background', '#4d4d4d');
+									document.getElementById("makeCDR4").style.color = '#FF9700';
+									$('#orderItem4').css('background', '#4d4d4d');
+									document.getElementById("orderItem4").style.color = '#fff';
+								});
+								$('#cdrlink5').on('click', function() { 
+									$('#makeCDR5').css('background', '#4d4d4d');
+									document.getElementById("makeCDR5").style.color = '#FF9700';
+									$('#orderItem5').css('background', '#4d4d4d');
+									document.getElementById("orderItem5").style.color = '#fff';
+								});
+								$('#cdrlink6').on('click', function() { 
+									$('#makeCDR6').css('background', '#4d4d4d');
+									document.getElementById("makeCDR6").style.color = '#FF9700';
+									$('#orderItem6').css('background', '#4d4d4d');
+									document.getElementById("orderItem6").style.color = '#fff';
+								});
+							</script>
+
+	
+						</fieldset>
+						
+						<h3>Choose Locations</h3>
+						<fieldset class="form-input">
+								<div class="container">
+									<h3 class="titlefield">Order Information</h3>
+									</br>
+										<div class="row">
+											<div class="col-md-2"></div>
+											<div class="col-md-8">
+												<p><b>Date:</b> 21-05-2019</p>
+												<p><b>Time:</b> 07:55PM</p>
+												<p><b>Truck Type:</b> Truck 12 Ton</p>
+												<p><b>Truck Load:</b> Boxes</p>
+												<p><b>Quantity:</b> 1</p>
+												<p><b>Unit:</b> QTY</p>
+											</div>
+											<div class="col-md-2"></div>
+										</div>
+									</div>
+									</br>
+									<div class="container">
+										<div class="row">
+											<div class="col-md-3"></div>
+											<div class="col-md-3">
+												<button class="mapButton" id="pubtn">Choose Pick Up location </button>
+											</div>
+											<div class="col-md-3">
+												<button class="mapButton" id="dobtn">Choose Drop Off location </button>
+											</div>
+											<div class="col-md-3"></div>
+										</div>
+									</div>
+									
+
+									<div id="myModal1" class="modal">
+										<!-- Modal content -->
+										<div class="modal-content">
+											<span class="close">&times;</span>
+											<ul class="labelContent">
+												<p>Saved Locations</p>
+												<li><i class="fas fa-star"></i><a href="#">Jeddah, 23432</a></li>
+												<li><i class="fas fa-star"></i><a href="#">Jeddah, 23532</a></li>
+												<li><i class="fas fa-star"></i><a href="#">Jeddah, 23422</a></li>
+											</ul>
+											<br>
+											<ul class="labelContent">
+												<p>Recent Locations</p>
+												<li><i class="far fa-star"></i><a href="#">Jeddah, 23432</a></li>
+												<li><i class="far fa-star"></i><a href="#">Jeddah, 23532</a></li>
+												<li><i class="far fa-star"></i><a href="#">Jeddah, 23422</a></li>
+											</ul>
+											<br>
+											<img id="mappic" src="../images/map.png" alt="Map" style="height:20em;"/>
+											
+											<center><a id="proceedbtn"><div id="proceedbtndiv">Done</div></a></center>
+										</div>
+									</div>
+									
+										<div id="myModal2" class="modal">
+										<!-- Modal content -->
+										<div class="modal-content">
+											<span class="close">&times;</span>
+											<ul class="labelContent">
+												<p>Saved Locations</p>
+												<li><i class="fas fa-star"></i><a href="#">Dropoff 1, 23432</a></li>
+												<li><i class="fas fa-star"></i><a href="#">Dropoff 2, 23532</a></li>
+												<li><i class="fas fa-star"></i><a href="#">Dropoff 3, 23422</a></li>
+											</ul>
+											<br>
+											<ul class="labelContent">
+												<p>Recent Locations</p>
+												<li><i class="far fa-star"></i><a href="#">Dropoff Jeddah, 23432</a></li>
+												<li><i class="far fa-star"></i><a href="#">Dropoff Jeddah, 23532</a></li>
+												<li><i class="far fa-star"></i><a href="#">Dropoff Jeddah, 23422</a></li>
+											</ul>
+											<br>
+											<img id="mappic" src="../images/map.png" alt="Map" style="height:20em;"/>
+											
+											<center><a id="donebtn"><div id="proceedbtndiv">Done</div></a></center>
+										</div>
+									</div>
+									
+									
+								<script>
+									// Get the modal
+									var modal1 = document.getElementById("myModal1");
+									var modal2 = document.getElementById("myModal2");
+
+									// Get the button that opens the modal
+									var btnpu = document.getElementById("pubtn");
+									var btndo = document.getElementById("dobtn");
+									var proceedbtn = document.getElementById("proceedbtn");
+									var donebtn = document.getElementById("donebtn");
+									
+									// Get the <span> element that closes the modal
+									var span = document.getElementsByClassName("close")[0];
+
+									// When the user clicks the button, open the modal 
+									btnpu.onclick = function() {
+									  modal1.style.display = "block";
+									}
+									btndo.onclick = function() {
+										modal2.style.display = "block";
+									}
+
+									// When the user clicks on <span> (x), close the modal
+									span.onclick = function() {
+									  modal1.style.display = "none";
+									  modal2.style.display = "none";
+									}
+
+									// When the user clicks anywhere outside of the modal, close it
+									window.onclick = function(event) {
+									  if (event.target == modal1) {
+										modal1.style.display = "none";
+									  }
+									  else if (event.target == modal2){
+										modal2.style.display = "none";
+									  }
+									}
+									
+									proceedbtn.onclick = function (){
+										modal1.style.display = "none";
+									}
+									
+									donebtn.onclick = function (){
+										modal2.style.display = "none";
+									}
+								</script>
+						</fieldset>
+
+						<h3>Choose Transporter</h3>
+						<fieldset class="form-input">
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="container">
+											<h6 id="quotaStyle"><b>Manage Transporter Quota</b></h6>
+											<div id="cblist">
+												<label class="cbcontainer">Rank
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="cbcontainer">Availability
+												  <input type="checkbox">
+												  <span class="checkmark"></span>
+												</label>
+												<label class="cbcontainer">Price
+												  <input type="checkbox">
+												  <span class="checkmark"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-8"></div>
+								</div>
+								
+								<div class="container">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="transporterList">
+												<a id="transporterLink1" class="transporterLink"> <div class="transporterName">
+													Transporter #1
+												</div></a>
+												<div class="container">
+													<div class="row transporterDetails">
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-star transporterIcon"></i>
+															<p>4.5/5</p>
+														</div>
+														<div class="col-sm-4 transporterData middleDetails">
+															<i class="fas fa-check-circle transporterIcon"></i>
+															<p style="color:#58D68D;">Available</p>
+														</div>
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-money-bill transporterIcon"></i>
+															<p>50,000SR</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="transporterList">
+												<a id="transporterLink2" class="transporterLink"> <div class="transporterName">
+													Transporter #2
+												</div></a>
+												<div class="container">
+													<div class="row transporterDetails">
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-star transporterIcon"></i>
+															<p>4.9/5</p>
+														</div>
+														<div class="col-sm-4 transporterData middleDetails">
+															<i class="fas fa-check-circle transporterIcon"></i>
+															<p style="color:#58D68D;">Available</p>
+														</div>
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-money-bill transporterIcon"></i>
+															<p>35,000SR</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="transporterList">
+												<a id="transporterLink3" class="transporterLink"> <div class="transporterName">
+													Transporter #3
+												</div></a>
+												<div class="container">
+													<div class="row transporterDetails">
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-star transporterIcon"></i>
+															<p>4.7/5</p>
+														</div>
+														<div class="col-sm-4 transporterData middleDetails">
+															<i class="fas fa-check-circle transporterIcon"></i>
+															<p style="color:#58D68D;">Available</p>
+														</div>
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-money-bill transporterIcon"></i>
+															<p>20,000SR</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="container">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="transporterList">
+												<a id="transporterLink4" class="transporterLink"> <div class="transporterName">
+													Transporter #4
+												</div></a>
+												<div class="container">
+													<div class="row transporterDetails">
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-star transporterIcon"></i>
+															<p>4/5</p>
+														</div>
+														<div class="col-sm-4 transporterData middleDetails">
+															<i class="fas fa-check-circle transporterIcon"></i>
+															<p style="color:#58D68D;">Available</p>
+														</div>
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-money-bill transporterIcon"></i>
+															<p>80,000SR</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="transporterList">
+												<a id="transporterLink5" class="transporterLink"> <div class="transporterName">
+													Transporter #5
+												</div></a>
+												<div class="container">
+													<div class="row transporterDetails">
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-star transporterIcon"></i>
+															<p>4.3/5</p>
+														</div>
+														<div class="col-sm-4 transporterData middleDetails">
+															<i class="fas fa-check-circle transporterIcon"></i>
+															<p style="color:#58D68D;">Available</p>
+														</div>
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-money-bill transporterIcon"></i>
+															<p>9,500SR</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="transporterList">
+												<a id="transporterLink6" class="transporterLink"> <div class="transporterName">
+													Transporter #6
+												</div></a>
+												<div class="container">
+													<div class="row transporterDetails">
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-star transporterIcon"></i>
+															<p>3.9/5</p>
+														</div>
+														<div class="col-sm-4 transporterData middleDetails">
+															<i class="fas fa-times-circle transporterIcon"></i>
+															<p style="color:#EC7063;">Unavailable</p>
+														</div>
+														<div class="col-sm-4 transporterData">
+															<i class="fas fa-money-bill transporterIcon"></i>
+															<p>17,000SR</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+								<div id="transportersModal" class="modal">
+										<!-- Modal content -->
+										<div class="modal-content">
+											<span class="close">&times;</span>
+											<div class="container">
+												<h5>User Input</h5>
+												<p><b>Transporter ID:</b> #201927</p>
+												<p><b>Transporter Name:</b> Hello There</p>
+												<p><b>Current Quota Status:</b> </p>
+												<p>Per month: 20% = Shipment</p>
+												<button type="submit" class="btn update" id="updateQuota">Update Quota</button>
+												<div class="btn-group" style="width:100%">
+													<button class="btn cancel" id="closeForm">Cancel</button>
+													<button class="btn choose" id="chooseTransporter">Done</button>
+												</div>
+											</div>
+										</div>
+								</div>
+								<script>
+									// Get the modal
+									var transportersModal = document.getElementById("transportersModal");
+
+									// Get the button that opens the modal
+									var transporterLink6 = document.getElementById("transporterLink6");
+									var transporterLink5 = document.getElementById("transporterLink5");
+									var transporterLink4 = document.getElementById("transporterLink4");
+									var transporterLink3 = document.getElementById("transporterLink3");
+									var transporterLink2 = document.getElementById("transporterLink2");
+									var transporterLink1 = document.getElementById("transporterLink1");
+									
+									var closeForm = document.getElementById("closeForm");
+									var chooseTransporter = document.getElementById("chooseTransporter");
+									
+									// Get the <span> element that closes the modal
+									var span = document.getElementsByClassName("close")[0];
+
+									// When the user clicks the button, open the modal 
+									transporterLink6.onclick = function() { transportersModal.style.display = "block"; }
+									transporterLink5.onclick = function() { transportersModal.style.display = "block"; }
+									transporterLink4.onclick = function() { transportersModal.style.display = "block"; }
+									transporterLink3.onclick = function() { transportersModal.style.display = "block"; }
+									transporterLink2.onclick = function() { transportersModal.style.display = "block"; }
+									transporterLink1.onclick = function() { transportersModal.style.display = "block"; }
+
+									// When the user clicks on <span> (x), close the modal
+									span.onclick = function() { transportersModal.style.display = "none"; }
+
+									// When the user clicks anywhere outside of the modal, close it
+									window.onclick = function(event) {
+									  if (event.target == transportersModal) {
+										transportersModal.style.display = "none";
+									  }
+									}
+									
+									closeForm.onclick = function (){
+										transportersModal.style.display = "none";
+									}
+									
+									chooseTransporter.onclick = function(){
+										transportersModal.style.display = "none";
+									}
+								</script>
+							
+							
+							
+						</fieldset>
+
+						<h3>Review CDR</h3>
+						<fieldset class="form-input">
+							<h3 class="titlefield">Review CDR</h3>
+									</br>
+										<div class="row">
+											<div class="col-md-2"></div>
+											<div class="col-md-8">
+												<p id="orderReview"><b>Order ID:</b> #0000004 </br>
+												<b>Pickup Date:</b> 21-05-2019 </br>
+												<b>Pickup Time:</b> 07:55PM</br>
+												<b>Pickup Location:</b> Jeddah 23432, Saudi Arabia</br>
+												<b>Dropoff Location:</b> Riyadh 55555, Saudi Arabia</br>
+												<b>Truck Type:</b> Truck 12 Ton</br>
+												<b>Truck Load:</b> Boxes</br>
+												<b>Quantity:</b> 1</br>
+												<b>Unit:</b> QTY</br>
+												<b>Comment:</b> Pickup location is a factory</p>
+											</div>
+											<div class="col-md-2"></div>
+										</div>
+										
+										<p>Note: by clicking Next, you agree to make CDR.</p>
+										<input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+						
+						</fieldset>
+
+						<h3>Finish</h3>
+						<fieldset class="form-input">
+							<br><br><br><br>
+							<center>
+								<i class="fas fa-check-circle" style="font-size:50px; color: #FF9700;"></i>
+								<h1 class="titlefield">Thank you</h1>
+								<p>Your Cargo Delivery Request is completed successfully.</P>
+							</center>
+						</fieldset>
+					</form>			
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<!-- jquery latest version -->
+<script src="../js/jquery.min.js"></script>
+<!-- popper.min.js -->
+<script src="../js/popper.min.js"></script>    
+<!-- bootstrap js -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- jquery.steps js -->
+<script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js'></script>
+<script src="../js/jquery.steps.js"></script>
+<!-- particles js -->
+<script src="../js/particles.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		particlesJS("particles-js", 
+			{
+			  "particles": {
+				"number": {
+				  "value": 160,
+				  "density": {
+					"enable": true,
+					"value_area": 800
+				  }
+				},
+				"color": {
+				  "value": "#ffffff"
+				},
+				"shape": {
+				  "type": "circle",
+				  "stroke": {
+					"width": 0,
+					"color": "#000000"
+				  },
+				  "polygon": {
+					"nb_sides": 5
+				  },
+				  "image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+				  }
+				},
+				"opacity": {
+				  "value": 1,
+				  "random": true,
+				  "anim": {
+					"enable": true,
+					"speed": 1,
+					"opacity_min": 0,
+					"sync": false
+				  }
+				},
+				"size": {
+				  "value": 3,
+				  "random": true,
+				  "anim": {
+					"enable": false,
+					"speed": 4,
+					"size_min": 0.3,
+					"sync": false
+				  }
+				},
+				"line_linked": {
+				  "enable": false,
+				  "distance": 150,
+				  "color": "#ffffff",
+				  "opacity": 0.4,
+				  "width": 1
+				},
+				"move": {
+				  "enable": true,
+				  "speed": 1,
+				  "direction": "none",
+				  "random": true,
+				  "straight": false,
+				  "out_mode": "out",
+				  "bounce": false,
+				  "attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 600
+				  }
+				}
+			  },
+			  "interactivity": {
+				"detect_on": "canvas",
+				"events": {
+				  "onhover": {
+					"enable": true,
+					"mode": "bubble"
+				  },
+				  "onclick": {
+					"enable": true,
+					"mode": "repulse"
+				  },
+				  "resize": true
+				},
+				"modes": {
+				  "grab": {
+					"distance": 400,
+					"line_linked": {
+					  "opacity": 1
+					}
+				  },
+				  "bubble": {
+					"distance": 250,
+					"size": 0,
+					"duration": 2,
+					"opacity": 0,
+					"speed": 3
+				  },
+				  "repulse": {
+					"distance": 400,
+					"duration": 0.4
+				  },
+				  "push": {
+					"particles_nb": 4
+				  },
+				  "remove": {
+					"particles_nb": 2
+				  }
+				}
+			  },
+			  "retina_detect": true
+			}
+    	);
+	});
+</script>
+
+<script>
+	var form = $("#example-advanced-form").show();
+
+	form.steps({
+		headerTag: "h3",
+		bodyTag: "fieldset",
+		transitionEffect: "slideLeft",
+		onStepChanging: function (event, currentIndex, newIndex)
+		{
+			// Allways allow previous action even if the current form is not valid!
+			if (currentIndex > newIndex)
+			{
+				return true;
+			}
+			// Forbid next action on "Warning" step if the user is to young
+			if (newIndex === 3 && Number($("#age").val()) < 18)
+			{
+				return false;
+			}
+			// Needed in some cases if the user went back (clean up)
+			if (currentIndex < newIndex)
+			{
+				// To remove error styles
+				form.find(".body:eq(" + newIndex + ") label.error").remove();
+				form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+			}
+			form.validate().settings.ignore = ":disabled,:hidden";
+			return form.valid();
+		},
+		onStepChanged: function (event, currentIndex, priorIndex)
+		{
+			// Used to skip the "Warning" step if the user is old enough.
+			if (currentIndex === 2 && Number($("#age").val()) >= 18)
+			{
+				form.steps("next");
+			}
+			// Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+			if (currentIndex === 2 && priorIndex === 3)
+			{
+				form.steps("previous");
+			}
+		},
+		onFinishing: function (event, currentIndex)
+		{
+			form.validate().settings.ignore = ":disabled";
+			return form.valid();
+		},
+		onFinished: function (event, currentIndex)
+		{
+			location.replace("../pages/dashboard.html");
+		}
+	}).validate({
+		errorPlacement: function errorPlacement(error, element) { element.before(error); },
+		rules: {
+			confirm: {
+				equalTo: "#password"
+			}
+		}
+	});
+</script>
+
+</body>
+</html>
